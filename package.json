@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.19.0",
     "polished": "^3.4.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -15,7 +16,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "api:server": "json-server data.json -p 3333"
   },
   "browserslist": {
     "production": [
@@ -37,6 +39,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.2",
+    "json-server": "^0.15.0",
     "prettier": "^1.18.2"
   }
 }
