@@ -48,6 +48,10 @@ export const ProductList = styled.ul`
       overflow: hidden;
       margin-top: auto;
 
+      &:disabled {
+        cursor: wait;
+      }
+
       display: flex;
       align-items: center;
       transition: background 0.2s;
@@ -56,14 +60,36 @@ export const ProductList = styled.ul`
         background: ${darken(0.03, '#7159c1')};
       }
 
-      div {
+      > div {
         display: flex;
         align-items: center;
         padding: 12px;
         background: rgba(0, 0, 0, 0.1);
+        position: relative;
 
         svg {
           margin-right: 5px;
+        }
+
+        .loading {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: ${darken(0.2, '#7159c1')};
+
+          > div {
+            width: 18px;
+            height: 18px;
+          }
+
+          svg {
+            margin: 0;
+          }
         }
       }
 

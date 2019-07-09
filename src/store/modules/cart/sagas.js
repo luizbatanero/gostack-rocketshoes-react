@@ -4,11 +4,15 @@ import { toast } from 'react-toastify';
 import api from '../../../services/api';
 import { formatPrice } from '../../../util/format';
 
-import { addToCartSuccess, updateAmountSuccess } from './actions';
+import {
+  addToCartSuccess,
+  updateAmountSuccess,
+  updateAmountFailure,
+} from './actions';
 
 function* addToCart({ id }) {
   const productExists = yield select(state =>
-    state.cart.find(p => p.id === id)
+    state.cart.products.find(p => p.id === id)
   );
 
   const stock = yield call(api.get, `/stock/${id}`);
@@ -20,6 +24,7 @@ function* addToCart({ id }) {
 
   if (amount > stockAmount) {
     toast.error('Amount requested is out of stock.');
+    yield put(updateAmountFailure());
     return;
   }
 

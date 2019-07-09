@@ -49,13 +49,13 @@ function Header({ cartSize, cart, total, location }) {
 }
 
 export default connect(state => ({
-  cartSize: state.cart.length,
-  cart: state.cart.slice(0, 3).map(product => ({
+  cartSize: state.cart.products.length,
+  cart: state.cart.products.slice(0, 3).map(product => ({
     ...product,
     price: formatPrice(product.price),
   })),
   total: formatPrice(
-    state.cart.reduce((total, product) => {
+    state.cart.products.reduce((total, product) => {
       return total + product.price * product.amount;
     }, 0)
   ),

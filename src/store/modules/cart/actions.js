@@ -34,3 +34,9 @@ export function updateAmountSuccess(id, amount) {
     amount,
   };
 }
+
+export function updateAmountFailure() {
+  return {
+    type: '@cart/UPDATE_AMOUNT_FAILURE',
+  };
+}
