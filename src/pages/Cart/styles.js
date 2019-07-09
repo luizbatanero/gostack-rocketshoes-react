@@ -5,6 +5,7 @@ export const Container = styled.div`
   padding: 30px;
   background: #fff;
   border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 
   footer {
     margin-top: 30px;
@@ -36,6 +37,10 @@ export const ProductTable = styled.table`
     color: #999;
     text-align: left;
     padding: 12px;
+
+    &:nth-child(3n) {
+      padding-left: 45px;
+    }
   }
 
   tbody td {

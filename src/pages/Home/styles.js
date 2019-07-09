@@ -15,10 +15,16 @@ export const ProductList = styled.ul`
     background: #fff;
     border-radius: 4px;
     padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 
     img {
       align-self: center;
       max-width: 250px;
+      transition: all 0.3s;
+    }
+
+    &:hover img {
+      transform: scale(1.05);
     }
 
     > strong {
