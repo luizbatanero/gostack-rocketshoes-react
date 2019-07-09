@@ -113,6 +113,7 @@ export const EmptyCart = styled.div`
     font-size: 28px;
     font-weight: bold;
     color: #333;
+    margin-top: 0.3em;
   }
 
   p {

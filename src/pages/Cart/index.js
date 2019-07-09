@@ -6,7 +6,7 @@ import {
   MdRemoveCircleOutline,
   MdAddCircleOutline,
   MdDelete,
-  MdShoppingBasket,
+  MdRemoveShoppingCart,
 } from 'react-icons/md';
 
 import { formatPrice } from '../../util/format';
@@ -28,7 +28,7 @@ function Cart({ cart, total, removeFromCart, updateAmountRequest }) {
     return (
       <Container>
         <EmptyCart>
-          <MdShoppingBasket size={140} />
+          <MdRemoveShoppingCart size={140} />
           <h2>SHOPPING CART IS EMPTY</h2>
           <p>You have no products in your shopping cart.</p>
           <Link to="/">
