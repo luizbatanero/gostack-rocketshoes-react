@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { MdShoppingBasket } from 'react-icons/md';
+import { MdShoppingCart } from 'react-icons/md';
 
 import { Container, Cart } from './styles';
 
@@ -15,11 +15,11 @@ function Header({ cartSize }) {
       </Link>
 
       <Cart to="/cart">
+        <strong>My cart</strong>
         <div>
-          <strong>My cart</strong>
-          <span>{cartSize} itens</span>
+          <MdShoppingCart size={36} color="#130042" />
+          <span>{cartSize}</span>
         </div>
-        <MdShoppingBasket size={36} color="#130042" />
       </Cart>
     </Container>
   );

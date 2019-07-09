@@ -18,18 +18,30 @@ export const Cart = styled(Link)`
     opacity: 0.7;
   }
 
+  strong {
+    display: block;
+    color: #130042;
+    text-transform: uppercase;
+    margin-right: 5px;
+  }
   div {
-    text-align: right;
-    margin-right: 10px;
-
-    strong {
-      display: block;
-      color: #130042;
-    }
+    position: relative;
 
     span {
+      display: block;
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #7159c1;
+      right: -4px;
+      top: -8px;
       font-size: 12px;
-      color: #888;
+      line-height: 21px;
+      overflow: hidden;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 100%;
+      text-align: center;
     }
   }
 `;

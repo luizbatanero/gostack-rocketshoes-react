@@ -74,6 +74,7 @@ export const ProductTable = styled.table`
       color: #666;
       padding: 6px;
       width: 50px;
+      text-align: center;
     }
   }
 
