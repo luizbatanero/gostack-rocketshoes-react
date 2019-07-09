@@ -1,17 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Link } from 'react-router-dom';
 import {
   MdRemoveCircleOutline,
   MdAddCircleOutline,
   MdDelete,
+  MdShoppingBasket,
 } from 'react-icons/md';
 
 import { formatPrice } from '../../util/format';
 
 import * as CartActions from '../../store/modules/cart/actions';
 
-import { Container, ProductTable, Total } from './styles';
+import { Container, ProductTable, Total, EmptyCart } from './styles';
 
 function Cart({ cart, total, removeFromCart, updateAmountRequest }) {
   function increment(product) {
@@ -20,6 +22,21 @@ function Cart({ cart, total, removeFromCart, updateAmountRequest }) {
 
   function decrement(product) {
     updateAmountRequest(product.id, product.amount - 1);
+  }
+
+  if (!cart.length) {
+    return (
+      <Container>
+        <EmptyCart>
+          <MdShoppingBasket size={140} />
+          <h2>SHOPPING CART IS EMPTY</h2>
+          <p>You have no products in your shopping cart.</p>
+          <Link to="/">
+            <button type="button">Continue shopping</button>
+          </Link>
+        </EmptyCart>
+      </Container>
+    );
   }
 
   return (

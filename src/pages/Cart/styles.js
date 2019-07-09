@@ -12,20 +12,21 @@ export const Container = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
 
-    button {
-      background: #7159c1;
-      color: #fff;
-      border: 0;
-      border-radius: 4px;
-      padding: 12px 20px;
-      font-weight: bold;
-      text-transform: uppercase;
-      transition: background 0.2s;
+  footer button,
+  a button {
+    background: #7159c1;
+    color: #fff;
+    border: 0;
+    border-radius: 4px;
+    padding: 12px 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background 0.2s;
 
-      &:hover {
-        background: ${darken(0.03, '#7159c1')};
-      }
+    &:hover {
+      background: ${darken(0.03, '#7159c1')};
     }
   }
 `;
@@ -97,5 +98,26 @@ export const Total = styled.div`
   strong {
     font-size: 28px;
     margin-left: 5px;
+  }
+`;
+
+export const EmptyCart = styled.div`
+  padding: 80px 50px;
+  text-align: center;
+
+  svg {
+    fill: #ddd;
+  }
+
+  h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  p {
+    font-size: 14px;
+    color: #777;
+    margin: 0.6em 0 2em;
   }
 `;
