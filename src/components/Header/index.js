@@ -11,7 +11,7 @@ function Header({ cartSize }) {
   return (
     <Container>
       <Link to="/">
-        <img src={logo} alt="RocketShoes" />
+        <img src={logo} alt="RocketShoes" width={350} />
       </Link>
 
       <Cart to="/cart">
@@ -19,7 +19,7 @@ function Header({ cartSize }) {
           <strong>My cart</strong>
           <span>{cartSize} itens</span>
         </div>
-        <MdShoppingBasket size={36} color="#fff" />
+        <MdShoppingBasket size={36} color="#130042" />
       </Cart>
     </Container>
   );
