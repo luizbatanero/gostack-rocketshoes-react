@@ -6,6 +6,8 @@ export const ProductList = styled.ul`
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
   list-style: none;
+  transition: opacity 0.3s ease-in;
+  opacity: ${props => (props.didMount ? '1' : '0')};
 
   li {
     display: flex;
@@ -65,5 +67,18 @@ export const ProductList = styled.ul`
         font-weight: bold;
       }
     }
+  }
+`;
+
+export const Loading = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 450px;
+
+  svg {
+    height: 150px;
+    width: 100px;
+    fill: #fff;
   }
 `;

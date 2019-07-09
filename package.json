@@ -9,6 +9,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-icons": "^3.7.0",
+    "react-loader-spinner": "^2.3.0",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
@@ -25,7 +26,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "api:server": "json-server data.json -p 3333"
+    "api:server": "json-server data.json -p 3333 -d 1000"
   },
   "browserslist": {
     "production": [

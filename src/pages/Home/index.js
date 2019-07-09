@@ -2,16 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { MdAddShoppingCart } from 'react-icons/md';
+import Loader from 'react-loader-spinner';
 import { formatPrice } from '../../util/format';
 import api from '../../services/api';
 
 import * as CartActions from '../../store/modules/cart/actions';
 
-import { ProductList } from './styles';
+import { ProductList, Loading } from './styles';
 
 class Home extends Component {
   state = {
     products: [],
+    loading: true,
+    didMount: false,
   };
 
   async componentDidMount() {
@@ -22,7 +25,11 @@ class Home extends Component {
       priceFormatted: formatPrice(product.price),
     }));
 
-    this.setState({ products: data });
+    this.setState({ products: data, loading: false });
+
+    setTimeout(() => {
+      this.setState({ didMount: true });
+    }, 0);
   }
 
   handleAddProduct = id => {
@@ -32,11 +39,18 @@ class Home extends Component {
   };
 
   render() {
-    const { products } = this.state;
+    const { products, loading, didMount } = this.state;
     const { amount } = this.props;
 
+    if (loading) {
+      return (
+        <Loading>
+          <Loader type="MutatingDot" color="#FFFFFF" />
+        </Loading>
+      );
+    }
     return (
-      <ProductList>
+      <ProductList didMount={didMount ? 1 : 0}>
         {products.map(product => (
           <li key={product.id}>
             <img src={product.image} alt={product.title} />
