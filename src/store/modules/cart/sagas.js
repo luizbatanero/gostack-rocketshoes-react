@@ -1,4 +1,12 @@
-import { call, select, put, all, takeLatest, delay } from 'redux-saga/effects';
+import {
+  call,
+  select,
+  put,
+  all,
+  takeLatest,
+  takeEvery,
+  delay,
+} from 'redux-saga/effects';
 import { toast } from 'react-toastify';
 
 import api from '../../../services/api';
@@ -26,7 +34,7 @@ function* addToCart({ id }) {
 
   if (amount > stockAmount) {
     toast.error('Amount requested is out of stock.');
-    yield put(updateAmountFailure());
+    yield put(updateAmountFailure(id));
     return;
   }
 
@@ -60,6 +68,6 @@ function* updateAmount({ id, amount }) {
 }
 
 export default all([
-  takeLatest('@cart/ADD_REQUEST', addToCart),
+  takeEvery('@cart/ADD_REQUEST', addToCart),
   takeLatest('@cart/UPDATE_AMOUNT_REQUEST', updateAmount),
 ]);

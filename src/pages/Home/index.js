@@ -42,7 +42,7 @@ class Home extends Component {
 
   render() {
     const { products, loading, didMount } = this.state;
-    const { amount, loadingId } = this.props;
+    const { amount, addingIds } = this.props;
 
     if (loading) {
       return (
@@ -62,12 +62,12 @@ class Home extends Component {
             <button
               type="button"
               onClick={() => this.handleAddProduct(product.id)}
-              disabled={product.id === loadingId}
+              disabled={addingIds.includes(product.id)}
             >
               <div>
                 <MdAddShoppingCart size={16} color="#FFF" />{' '}
                 {amount[product.id] || 0}
-                {product.id === loadingId && (
+                {addingIds.includes(product.id) && (
                   <div className="loading">
                     <Loader type="Oval" color="#FFF" width={18} height={18} />
                   </div>
@@ -87,7 +87,7 @@ const mapStateToProps = state => ({
     amount[product.id] = product.amount;
     return amount;
   }, {}),
-  loadingId: state.cart.loadingId,
+  addingIds: state.cart.addingIds,
 });
 
 const mapDispatchToProps = dispatch =>
