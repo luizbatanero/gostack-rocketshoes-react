@@ -1,4 +1,4 @@
-import { call, select, put, all, takeLatest } from 'redux-saga/effects';
+import { call, select, put, all, takeLatest, delay } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
 
 import api from '../../../services/api';
@@ -11,6 +11,8 @@ import {
 } from './actions';
 
 function* addToCart({ id }) {
+  yield delay(300);
+
   const productExists = yield select(state =>
     state.cart.products.find(p => p.id === id)
   );
