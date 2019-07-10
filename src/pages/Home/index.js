@@ -25,11 +25,13 @@ class Home extends Component {
       priceFormatted: formatPrice(product.price),
     }));
 
-    this.setState({ products: data, loading: false });
-
     setTimeout(() => {
-      this.setState({ didMount: true });
-    }, 0);
+      this.setState({ products: data, loading: false });
+
+      setTimeout(() => {
+        this.setState({ didMount: true });
+      }, 0);
+    }, 1000);
   }
 
   handleAddProduct = id => {
