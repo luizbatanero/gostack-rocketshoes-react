@@ -2,20 +2,20 @@ import produce from 'immer';
 
 const INITIAL_STATE = {
   products: [],
-  adding: null,
+  loadingId: null,
 };
 
 export default function cart(state = INITIAL_STATE, action) {
   switch (action.type) {
     case '@cart/ADD_REQUEST':
       return produce(state, draft => {
-        draft.adding = action.id;
+        draft.loadingId = action.id;
       });
     case '@cart/ADD_SUCCESS':
       return produce(state, draft => {
         const { product } = action;
         draft.products.push(product);
-        draft.adding = null;
+        draft.loadingId = null;
       });
     case '@cart/REMOVE':
       return produce(state, draft => {
@@ -33,11 +33,11 @@ export default function cart(state = INITIAL_STATE, action) {
           draft.products[productIndex].amount = Number(action.amount);
         }
 
-        draft.adding = null;
+        draft.loadingId = null;
       });
     case '@cart/UPDATE_AMOUNT_FAILURE':
       return produce(state, draft => {
-        draft.adding = null;
+        draft.loadingId = null;
       });
     default:
       return state;

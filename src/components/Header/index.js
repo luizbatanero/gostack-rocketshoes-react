@@ -17,10 +17,12 @@ function Header({ cartSize, cart, total, location }) {
 
       <Cart to="/cart">
         <strong>My cart</strong>
+
         <div>
           <MdShoppingCart size={36} color="#130042" />
           <span>{cartSize}</span>
         </div>
+
         {cart.length && location.pathname !== '/cart' ? (
           <Dropdown>
             {cart.map(product => (
@@ -40,9 +42,7 @@ function Header({ cartSize, cart, total, location }) {
               <span>{total}</span>
             </h2>
           </Dropdown>
-        ) : (
-          ''
-        )}
+        ) : null}
       </Cart>
     </Container>
   );
